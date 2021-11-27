@@ -33,10 +33,11 @@ namespace Banco
         //cargamos la grid inicial de frmCuentas
         public DataTable GetCuentas()
         {
-            string query = "" +
-                "select Clientes.Nombre,Cuentas.ID,Cuentas.NumeroDeCuenta,Cuentas.FechaDeAlta,Cuentas.LimiteDeCredito,Cuentas.Saldo " +
-                "from Clientes,Cuentas " +
-                "where Clientes.ID = Cuentas.ClienteId; ";
+            string query = "select Nombre,ID,NumeroDeCuenta,FechaDeAlta,LimiteDeCredito,Saldo from v_cuentas";
+            //string query = "" +
+            //    "select Clientes.Nombre,Cuentas.ID,Cuentas.NumeroDeCuenta,Cuentas.FechaDeAlta,Cuentas.LimiteDeCredito,Cuentas.Saldo " +
+            //    "from Clientes,Cuentas " +
+            //    "where Clientes.ID = Cuentas.ClienteId; ";
                //ID tabla clientes <- llave foranea en tabla cuentas
             try
             {
@@ -61,13 +62,22 @@ namespace Banco
         }
 
         //sobrecarga de GetCuentas para buscar por nombre del cliente
-        public DataTable GetCuentas(string nombreDelCliente)
+        public DataTable GetCuentas(string dato)
         {
-            string query = "" +
-                "select Clientes.Nombre,Cuentas.ID,Cuentas.NumeroDeCuenta,Cuentas.FechaDeAlta,Cuentas.LimiteDeCredito,Cuentas.Saldo " +
-                "from Clientes,Cuentas " +
-                "where(Clientes.ID = Cuentas.ClienteId) and (Clientes.Nombre like '%'+@nombre+'%')";
+            string query = "select Nombre,ID,NumeroDeCuenta,FechaDeAlta,LimiteDeCredito,Saldo from v_Cuentas where (Nombre like '%'+@dato+'%') or (Email like '%'+@dato+'%')";
+            
+            if (int.TryParse(dato,out int numero))
+            {
+                query += " or (NumeroDeCuenta = @dato)";
+            }
+
+            //el query en linea 66 sustituye a este comentario
+            //string query = "" +
+            //    "select Clientes.Nombre,Cuentas.ID,Cuentas.NumeroDeCuenta,Cuentas.FechaDeAlta,Cuentas.LimiteDeCredito,Cuentas.Saldo " +
+            //    "from Clientes,Cuentas " +
+            //    "where(Clientes.ID = Cuentas.ClienteId) and (Clientes.Nombre like '%'+@nombre+'%')";
             //ID tabla clientes <- llave foranea en tabla cuentas
+            
             try
             {
                 using (SqlConnection cn = new SqlConnection(connectionString))
@@ -75,7 +85,8 @@ namespace Banco
                     using (SqlCommand command = new SqlCommand(query, cn))
                     {
                         command.CommandType = CommandType.Text;
-                        command.Parameters.AddWithValue("@Nombre",nombreDelCliente);
+                        command.Parameters.AddWithValue("@dato",dato);
+
                         cn.Open();
                         SqlDataAdapter adapter = new SqlDataAdapter(command); //adaptamos los datos para utilizar el fill
                         DataTable data = new DataTable();
@@ -93,11 +104,11 @@ namespace Banco
 
         public Cuenta GetCuenta(int cuentaId)
         {
-            //string query = "select * from Clientes where ID = @ID";
-            string query = "" +
-                "select Clientes.Nombre,Cuentas.ID,Cuentas.NumeroDeCuenta,Cuentas.FechaDeAlta,Cuentas.LimiteDeCredito,Cuentas.Saldo " +
-                "from Clientes,Cuentas " +
-                "where(Clientes.ID = Cuentas.ClienteId) and (Cuentas.ID = @ID)";
+            string query = "select * from v_Cuentas where ID = @ID";
+            //string query = "" +
+            //    "select Clientes.Nombre,Cuentas.ID,Cuentas.NumeroDeCuenta,Cuentas.FechaDeAlta,Cuentas.LimiteDeCredito,Cuentas.Saldo " +
+            //    "from Clientes,Cuentas " +
+            //    "where(Clientes.ID = Cuentas.ClienteId) and (Cuentas.ID = @ID)";
             try
             {
                 using (SqlConnection cn = new SqlConnection(connectionString))

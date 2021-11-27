@@ -66,5 +66,22 @@ namespace Banco
         {
             Application.Exit();
         }
+
+        private void movimientosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Movimientos movimientos = new Movimientos(connectionString);
+
+            movimientos.FechaMovimiento = DateTime.Now;
+            movimientos.Cantidad = 100;
+            movimientos.TipoMovimiento = Movimientos.MovimientoTipo.Retiro;
+            movimientos.Descripcion = "Deposito de 100 por desarrollo";
+            movimientos.TarjetaID = 1;
+            movimientos.ClienteID = 1;
+            movimientos.Insertar(movimientos);
+
+            MessageBox.Show(movimientos.TipoMovimiento.ToString());
+        }
     }
 }
+
+
