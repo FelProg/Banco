@@ -29,35 +29,156 @@ namespace Banco
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administraciónDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administracionDeCuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tarjetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administraciónDeTarjetasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblHeader = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // menuStrip1
             // 
-            this.button1.Location = new System.Drawing.Point(369, 211);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.archivoToolStripMenuItem,
+            this.clientesToolStripMenuItem,
+            this.cuentasToolStripMenuItem,
+            this.tarjetasToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
+            this.menuStrip1.Size = new System.Drawing.Size(843, 27);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.administraciónDeClientesToolStripMenuItem});
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 19);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            // 
+            // administraciónDeClientesToolStripMenuItem
+            // 
+            this.administraciónDeClientesToolStripMenuItem.Name = "administraciónDeClientesToolStripMenuItem";
+            this.administraciónDeClientesToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.administraciónDeClientesToolStripMenuItem.Text = "Administración de Clientes";
+            this.administraciónDeClientesToolStripMenuItem.Click += new System.EventHandler(this.administraciónDeClientesToolStripMenuItem_Click);
+            // 
+            // cuentasToolStripMenuItem
+            // 
+            this.cuentasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.administracionDeCuentasToolStripMenuItem});
+            this.cuentasToolStripMenuItem.Name = "cuentasToolStripMenuItem";
+            this.cuentasToolStripMenuItem.Size = new System.Drawing.Size(62, 19);
+            this.cuentasToolStripMenuItem.Text = "Cuentas";
+            // 
+            // administracionDeCuentasToolStripMenuItem
+            // 
+            this.administracionDeCuentasToolStripMenuItem.Name = "administracionDeCuentasToolStripMenuItem";
+            this.administracionDeCuentasToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.administracionDeCuentasToolStripMenuItem.Text = "Administración de Cuentas";
+            this.administracionDeCuentasToolStripMenuItem.Click += new System.EventHandler(this.administracionDeCuentasToolStripMenuItem_Click);
+            // 
+            // tarjetasToolStripMenuItem
+            // 
+            this.tarjetasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.administraciónDeTarjetasToolStripMenuItem1});
+            this.tarjetasToolStripMenuItem.Name = "tarjetasToolStripMenuItem";
+            this.tarjetasToolStripMenuItem.Size = new System.Drawing.Size(58, 19);
+            this.tarjetasToolStripMenuItem.Text = "Tarjetas";
+            // 
+            // administraciónDeTarjetasToolStripMenuItem1
+            // 
+            this.administraciónDeTarjetasToolStripMenuItem1.Name = "administraciónDeTarjetasToolStripMenuItem1";
+            this.administraciónDeTarjetasToolStripMenuItem1.Size = new System.Drawing.Size(213, 22);
+            this.administraciónDeTarjetasToolStripMenuItem1.Text = "Administración de Tarjetas";
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblHeader.Location = new System.Drawing.Point(60, 116);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(0, 25);
+            this.lblHeader.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.pictureBox1.BackgroundImage = global::Banco.Properties.Resources.finance_money_debt_credit_balance_concept;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(407, 73);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(459, 274);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // archivoToolStripMenuItem
+            // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salirToolStripMenuItem});
+            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 19);
+            this.archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(843, 407);
+            this.Controls.Add(this.lblHeader);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sistema de Administración Bancario";
+            this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem administraciónDeClientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cuentasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem administracionDeCuentasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tarjetasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem administraciónDeTarjetasToolStripMenuItem1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }
 

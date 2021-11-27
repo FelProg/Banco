@@ -62,7 +62,6 @@ namespace Banco
             }
             catch (Exception err)
             {
-
                 MessageBox.Show(err.Message);
             }
         }
@@ -85,7 +84,6 @@ namespace Banco
             }
             catch (Exception err)
             {
-
                 MessageBox.Show(err.Message);
             }
         }
@@ -107,10 +105,14 @@ namespace Banco
             }
             catch (Exception err)
             {
-
                 MessageBox.Show(err.Message);
             }
 
+        }
+
+        private void regresarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

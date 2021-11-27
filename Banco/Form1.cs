@@ -22,13 +22,49 @@ namespace Banco
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            lblHeader.Text = "\n" +
+                "              Bienvenido" +
+                "\nSistema Administrativo Bancario" +
+                "\n                 Ver 1.0" +
+                "\n" +
+                "\n        Disfrute su estancia";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void administraciónDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmClientes clientes = new frmClientes(connectionString);
+            this.Hide();
             clientes.ShowDialog();
+            try
+            {
+                this.Show();
+            }
+            catch (Exception)
+            {
+               // :P 
+            }
+            
+        }
+
+        private void administracionDeCuentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+    
+            frmCuentas cuentas = new frmCuentas(connectionString);
+            this.Hide();
+            cuentas.ShowDialog();
+            try
+            {
+                this.Show();
+            }
+            catch (Exception)
+            {
+                // :P 
+            }
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

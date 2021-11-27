@@ -34,12 +34,6 @@ namespace Banco
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            frmCliente cliente = new frmCliente(connectionString);
-            cliente.ShowDialog(); //abre una forma nueva bloqueando la anterior.
-            MostrarClientes();
-        }
 
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -51,10 +45,60 @@ namespace Banco
             {
                 int clienteId = Convert.ToInt32(dgvClientes.Rows[e.RowIndex].Cells["ID"].Value);
                 frmCliente cliente = new frmCliente(clienteId, connectionString);
+                this.Hide();
                 cliente.ShowDialog(); //abre una forma nueva bloqueando la anterior.
+                this.Show();
                 MostrarClientes();
             }
 
+        }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCliente cliente = new frmCliente(connectionString);
+            this.Hide();
+            cliente.ShowDialog(); //abre una forma nueva bloqueando la anterior.
+            this.Show();
+            MostrarClientes();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult confirmacion = MessageBox.Show("Esta opción cerrara toda la aplicación. Desea continuar","Confirmación",MessageBoxButtons.YesNo);
+            if (confirmacion == DialogResult.Yes)
+            {
+                //Application.Exit();
+                System.Windows.Forms.Application.ExitThread();
+            }
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Seleccione el elemento que desea eliminar haciendo doble click sobre su registro en la tabla","Eliminar",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
+        private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Seleccione el registro que desea actualizar haciendo doble click sobre su registro en la tabla", "Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void menúPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            //Neceistamos llamar a una función de la clase cliente para que busque el registro
+            try
+            {
+                Cliente cliente = new Cliente(connectionString);
+                dgvClientes.DataSource = cliente.GetClientes(txtNombre.Text);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("sucedio el siguiente error : " + err.Message);
+            }
         }
     }
 }
